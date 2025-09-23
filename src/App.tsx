@@ -99,19 +99,20 @@ function App() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button
-              onClick={scrollToTop}
-              className="hover:opacity-80 transition-opacity"
-            >
-              <img 
-                src="/images/Maverick_Motors_logo.webp" 
-                alt="Maverick Motors" 
-                className="h-16 w-auto mb-4"
-              />
-            </button>
-            
-            <nav className="hidden md:flex items-center space-x-8">
+          <div className="flex items-center justify-between md:justify-center">
+            <div className="flex items-center space-x-8">
+              <button
+                onClick={scrollToTop}
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src="/images/Maverick_Motors_logo.webp" 
+                  alt="Maverick Motors" 
+                  className="h-16 w-auto"
+                />
+              </button>
+              
+              <nav className="hidden md:flex items-center space-x-8">
               <a href="#services" className="hover:text-maverick-yellow transition-colors">Services</a>
               <a href="#about" className="hover:text-maverick-yellow transition-colors">À propos</a>
               <a href="#avis" className="hover:text-maverick-yellow transition-colors">Avis</a>
@@ -123,6 +124,7 @@ function App() {
                 📞 Appeler
               </button>
             </nav>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
