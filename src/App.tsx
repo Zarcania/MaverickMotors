@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Phone, MapPin, Clock, Wrench, Truck, Car, Zap, MessageCircle, Navigation, Star, Mail, Users, Award, ArrowUp, Menu, X } from 'lucide-react';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
 
@@ -105,25 +104,28 @@ function App() {
                 onClick={scrollToTop}
                 className="hover:opacity-80 transition-opacity"
               >
-                <img 
-                  src="/images/Maverick_Motors_logo.webp" 
-                  alt="Maverick Motors" 
+                <img
+                  src="/images/Maverick_Motors_logo.webp"
+                  alt="Maverick Motors"
                   className="h-16 w-auto"
+                  loading="lazy"
+                  decoding="async"
+                  width={256}
+                  height={64}
                 />
               </button>
-              
               <nav className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="hover:text-maverick-yellow transition-colors">Services</a>
-              <a href="#about" className="hover:text-maverick-yellow transition-colors">À propos</a>
-              <a href="#avis" className="hover:text-maverick-yellow transition-colors">Avis</a>
-              <a href="#contact" className="hover:text-maverick-yellow transition-colors">Contact</a>
-              <button
-                onClick={handleCall}
-                className="bg-maverick-yellow text-black px-6 py-2 rounded-lg hover:bg-maverick-yellow/90 transition-all transform hover:scale-105 font-semibold"
-              >
-                📞 Appeler
-              </button>
-            </nav>
+                <a href="#services" className="hover:text-maverick-yellow transition-colors">Services</a>
+                <a href="#about" className="hover:text-maverick-yellow transition-colors">À propos</a>
+                <a href="#avis" className="hover:text-maverick-yellow transition-colors">Avis</a>
+                <a href="#contact" className="hover:text-maverick-yellow transition-colors">Contact</a>
+                <button
+                  onClick={handleCall}
+                  className="bg-maverick-yellow text-black px-6 py-2 rounded-lg hover:bg-maverick-yellow/90 transition-all transform hover:scale-105 font-semibold"
+                >
+                  📞 Appeler
+                </button>
+              </nav>
             </div>
 
             {/* Mobile Menu Button */}
@@ -250,16 +252,19 @@ function App() {
 
       {/* Services Section */}
       <section id="services" className="py-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 transform scale-105"
+        <div
+          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105 mix-blend-normal"
           style={{
-            backgroundImage: `url('/images/maverick-bg1.webp')`
+            backgroundImage: `image-set(url('/images/maverick-bg1.webp') 1x, url('/images/maverick-bg1.webp') 2x)`,
+            backgroundSize: 'cover'
           }}
-        >
-          {/* Effets visuels pour la section services */}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 pointer-events-none" />
+        {/* Accents décoratifs */}
+        <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-10 right-10 w-4 h-4 bg-maverick-yellow/30 rounded-full animate-pulse-slow"></div>
           <div className="absolute bottom-20 left-20 w-2 h-2 bg-maverick-yellow/50 rounded-full animate-float"></div>
-          <div className="absolute top-1/2 left-10 w-1 h-1 bg-maverick-yellow rounded-full animate-pulse-slow" style={{animationDelay: '3s'}}></div>
+          <div className="absolute top-1/2 left-10 w-1 h-1 bg-maverick-yellow rounded-full animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
         </div>
         <div className="relative z-10 container mx-auto px-4">
           <div className="text-center mb-16">
@@ -300,14 +305,16 @@ function App() {
 
       {/* About Section */}
       <section id="about" className="py-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 transform scale-105"
+        <div
+          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105"
           style={{
-            backgroundImage: `url('/images/maverick-bg2.webp')`
+            backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2.webp') 2x)`,
+            backgroundSize: 'cover'
           }}
-        >
-          {/* Effets visuels pour la section à propos */}
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-maverick-yellow/40 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-maverick-yellow/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-maverick-yellow/60 rounded-full animate-pulse-slow"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4">
@@ -353,14 +360,16 @@ function App() {
 
       {/* Testimonials Section */}
       <section id="avis" className="py-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 transform scale-105"
+        <div
+          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105"
           style={{
-            backgroundImage: `url('/images/maverick-bg3.webp')`
+            backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3.webp') 2x)`,
+            backgroundSize: 'cover'
           }}
-        >
-          {/* Effets visuels pour la section avis */}
-          <div className="absolute top-20 right-1/3 w-2 h-2 bg-maverick-yellow/50 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute top-20 right-1/3 w-2 h-2 bg-maverick-yellow/50 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
           <div className="absolute bottom-40 left-1/3 w-1 h-1 bg-maverick-yellow rounded-full animate-pulse-slow"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4">
