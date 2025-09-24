@@ -1,3 +1,137 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Section theming utilities */
+:root {
+	--color-primary: #d4d435;
+	--color-primary-hover: #c4c41f;
+	--color-primary-soft: rgba(212,212,53,0.12);
+	--color-primary-soft-strong: rgba(212,212,53,0.22);
+	--color-primary-glow: 0 0 0 1px rgba(212,212,53,0.4), 0 0 18px -2px rgba(212,212,53,0.45);
+	--ring-focus: 0 0 0 3px rgba(212,212,53,0.35);
+}
+.section-shell {
+	@apply relative overflow-hidden py-20; /* spacing & positioning */
+}
+
+.section-bg {
+	position: absolute;
+	inset: 0;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: saturate(1.05) contrast(1.05);
+	transform: scale(1.04);
+	opacity: 0.3;
+}
+
+.section-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.85) 100%);
+	mix-blend-mode: normal;
+	pointer-events: none;
+}
+
+.section-noise {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 4px);
+	mix-blend-mode: overlay;
+	opacity: .25;
+}
+
+.section-accent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1200px;
+	height: 1200px;
+	transform: translate(-50%, -50%);
+	background: radial-gradient(circle at 50% 50%, rgba(219,181,0,0.18), rgba(219,181,0,0) 60%);
+	filter: blur(60px);
+	opacity: .35;
+	pointer-events: none;
+}
+
+/* Utility for subtle card hover */
+.card-hover-glow {
+	transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+}
+.card-hover-glow:hover {
+	box-shadow: 0 0 0 1px rgba(219,181,0,0.35), 0 4px 28px -4px rgba(219,181,0,0.35);
+	transform: translateY(-4px) scale(1.02);
+	border-color: rgba(219,181,0,0.6);
+}
+
+/* Glass panel */
+.panel-glass {
+	position: relative;
+	background: linear-gradient(150deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+	border: 1px solid rgba(255,255,255,0.08);
+	backdrop-filter: blur(14px) saturate(1.1);
+	border-radius: 1.25rem;
+}
+.panel-glass:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: radial-gradient(circle at 30% 20%, rgba(212,212,53,0.15), rgba(212,212,53,0) 60%);
+	opacity: .55;
+	pointer-events: none;
+}
+
+/* Divider glow */
+.divider-glow {
+	width: 110px;
+	height: 4px;
+	margin: 0.75rem auto 2.5rem auto;
+	background: linear-gradient(90deg, rgba(0,0,0,0), var(--color-primary), rgba(0,0,0,0));
+	position: relative;
+	border-radius: 2px;
+	box-shadow: 0 0 12px -2px var(--color-primary);
+}
+
+/* Pill accent */
+.pill-accent {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .4rem .9rem;
+	background: var(--color-primary-soft);
+	border: 1px solid var(--color-primary-soft-strong);
+	color: var(--color-primary);
+	border-radius: 999px;
+	font-size: .7rem;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+/* Icon ring (halo for service cards or feature icons) */
+.icon-ring {
+	position: relative;
+}
+.icon-ring:before {
+	content: "";
+	position: absolute;
+	inset: -6px;
+	border-radius: 14px;
+	background: radial-gradient(circle at 50% 50%, var(--color-primary), transparent 70%);
+	opacity: .25;
+	filter: blur(8px);
+}
+
+/* Focus utility */
+.focus-outline-primary:focus-visible {
+	outline: none;
+	box-shadow: var(--ring-focus);
+}
+
+@media (min-width: 1024px) {
+	.section-bg { opacity: 0.28; }
+	.section-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.9) 100%); }
+}

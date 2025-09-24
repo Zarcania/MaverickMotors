@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'maverick-yellow': '#e5e900',
+        'maverick-yellow': '#d4d435', // updated primary brand yellow
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

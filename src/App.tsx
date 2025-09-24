@@ -251,21 +251,17 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 relative overflow-hidden">
+      <section id="services" className="section-shell">
         <div
-          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105 mix-blend-normal"
+          className="section-bg"
           style={{
-            backgroundImage: `image-set(url('/images/maverick-bg1.webp') 1x, url('/images/maverick-bg1.webp') 2x)`,
-            backgroundSize: 'cover'
+            /* Using @2x filename placeholder for future high-res asset */
+            backgroundImage: `image-set(url('/images/maverick-bg1.webp') 1x, url('/images/maverick-bg1@2x.webp') 2x)`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 pointer-events-none" />
-        {/* Accents décoratifs */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-10 right-10 w-4 h-4 bg-maverick-yellow/30 rounded-full animate-pulse-slow"></div>
-          <div className="absolute bottom-20 left-20 w-2 h-2 bg-maverick-yellow/50 rounded-full animate-float"></div>
-          <div className="absolute top-1/2 left-10 w-1 h-1 bg-maverick-yellow rounded-full animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
-        </div>
+        <div className="section-overlay" />
+        <div className="section-noise" />
+        <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold mb-4">
@@ -279,16 +275,16 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {services.map((service) => (
               <div key={service.id} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-2xl bg-black/50 backdrop-blur-sm border border-maverick-yellow/20 hover:border-maverick-yellow/60 transition-all duration-300 transform hover:scale-105">
+                <div className="relative overflow-hidden rounded-2xl bg-black/35 backdrop-blur-md border border-maverick-yellow/25 card-hover-glow">
                   <div 
                     className="h-32 md:h-64 bg-cover bg-center relative"
                     style={{
                       backgroundImage: `url('${service.image}')`
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                    <div className="absolute top-2 left-2 md:top-4 md:left-4 w-8 h-8 md:w-12 md:h-12 bg-maverick-yellow rounded-lg flex items-center justify-center">
-                      <service.icon className="w-4 h-4 md:w-6 md:h-6 text-black" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10"></div>
+                    <div className="absolute top-2 left-2 md:top-4 md:left-4 w-8 h-8 md:w-12 md:h-12 rounded-xl flex items-center justify-center icon-ring bg-maverick-yellow shadow-[0_0_0_1px_rgba(255,255,255,0.15)]">
+                      <service.icon className="w-4 h-4 md:w-6 md:h-6 text-black drop-shadow" />
                     </div>
                   </div>
                   
@@ -304,94 +300,86 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative overflow-hidden">
+      <section id="about" className="section-shell">
         <div
-          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105"
-          style={{
-            backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2.webp') 2x)`,
-            backgroundSize: 'cover'
-          }}
+          className="section-bg"
+          /* Background with planned @2x high-res variant */
+          style={{ backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2@2x.webp') 2x)` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-maverick-yellow/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-maverick-yellow/60 rounded-full animate-pulse-slow"></div>
-        </div>
+        <div className="section-overlay" />
+        <div className="section-noise" />
+        <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-4xl md:text-5xl font-bold mb-8">
+          <div className="max-w-5xl mx-auto panel-glass p-10 md:p-14 text-center">
+            <div className="pill-accent mb-6 mx-auto">Qui sommes-nous</div>
+            <h3 className="text-4xl md:text-5xl font-bold">
               À propos de <span className="text-maverick-yellow">Maverick</span>
             </h3>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="divider-glow" />
+            <div className="grid md:grid-cols-3 gap-8 mb-12 mt-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
                   <Users className="w-8 h-8 text-black" />
                 </div>
-                <h4 className="text-2xl font-bold mb-2 text-yellow-400">Équipe Expert</h4>
-                <p className="text-gray-300">Techniciens expérimentés</p>
+                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Équipe Expert</h4>
+                <p className="text-gray-300 text-sm">Techniciens expérimentés</p>
               </div>
-              
               <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
                   <Clock className="w-8 h-8 text-black" />
                 </div>
-                <h4 className="text-2xl font-bold mb-2 text-yellow-400">Disponibilité</h4>
-                <p className="text-gray-300">Service 24h/24, 7j/7</p>
+                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Disponibilité</h4>
+                <p className="text-gray-300 text-sm">Service 24h/24, 7j/7</p>
               </div>
-              
               <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
                   <Award className="w-8 h-8 text-black" />
                 </div>
-                <h4 className="text-2xl font-bold mb-2 text-yellow-400">Excellence</h4>
-                <p className="text-gray-300">Véhicules de prestige</p>
+                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Excellence</h4>
+                <p className="text-gray-300 text-sm">Véhicules de prestige</p>
               </div>
             </div>
-
-            <p className="text-xl text-gray-300 leading-relaxed">
-              <strong className="text-yellow-400">Maverick</strong> est votre partenaire de confiance pour tous vos besoins de dépannage et transport de véhicules. 
-              Avec notre expertise reconnue dans le transport de véhicules de prestige et notre disponibilité 24h/24, 
-              nous garantissons un service professionnel et sécurisé pour votre tranquillité d'esprit.
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              <strong className="text-maverick-yellow">Maverick</strong> est votre partenaire de confiance pour tous vos besoins de dépannage et transport de véhicules. Avec notre expertise reconnue dans le transport de véhicules de prestige et notre disponibilité 24h/24, nous garantissons un service professionnel et sécurisé pour votre tranquillité d'esprit.
             </p>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section id="avis" className="py-20 relative overflow-hidden">
+      <section id="avis" className="section-shell">
         <div
-          className="absolute inset-0 bg-center bg-no-repeat opacity-25 transform scale-105"
-          style={{
-            backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3.webp') 2x)`,
-            backgroundSize: 'cover'
-          }}
+          className="section-bg"
+          /* Background with planned @2x high-res variant */
+          style={{ backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3@2x.webp') 2x)` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute top-20 right-1/3 w-2 h-2 bg-maverick-yellow/50 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-40 left-1/3 w-1 h-1 bg-maverick-yellow rounded-full animate-pulse-slow"></div>
-        </div>
+        <div className="section-overlay" />
+        <div className="section-noise" />
+        <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl md:text-5xl font-bold mb-4">
-              Avis <span className="text-maverick-yellow">Clients</span>
-            </h3>
-            <p className="text-xl text-gray-300">Ce que disent nos clients satisfaits</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-black/50 backdrop-blur-sm rounded-2xl p-6 border border-maverick-yellow/20">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-maverick-yellow fill-current" />
-                  ))}
+          <div className="max-w-6xl mx-auto panel-glass p-10 md:p-14">
+            <div className="text-center mb-12">
+              <div className="pill-accent mb-4 mx-auto">Témoignages</div>
+              <h3 className="text-4xl md:text-5xl font-bold">
+                Avis <span className="text-maverick-yellow">Clients</span>
+              </h3>
+              <div className="divider-glow" />
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Ce que disent nos clients satisfaits</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="relative overflow-hidden rounded-2xl bg-black/40 backdrop-blur-md border border-maverick-yellow/25 p-6 flex flex-col shadow-[0_0_0_1px_rgba(212,212,53,0.15),0_8px_28px_-6px_rgba(0,0,0,0.6)]">
+                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-maverick-yellow/10 via-transparent to-maverick-yellow/10 pointer-events-none" />
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-maverick-yellow fill-current drop-shadow" />
+                    ))}
+                  </div>
+                  <p className="text-gray-300 mb-6 italic flex-1 leading-relaxed">"{testimonial.text}"</p>
+                  <div className="font-semibold text-maverick-yellow tracking-wide text-sm">- {testimonial.name}</div>
                 </div>
-                <p className="text-gray-300 mb-6 italic">"{testimonial.text}"</p>
-                <div className="font-semibold text-maverick-yellow">- {testimonial.name}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
