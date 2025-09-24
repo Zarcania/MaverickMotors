@@ -78,7 +78,11 @@ function App() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Offset pour éviter que le header fixe masque le haut de section
+      const headerOffset = 100; // ~hauteur approximative du header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       setIsNavMenuOpen(false);
     }
   };
@@ -304,15 +308,17 @@ function App() {
         <div
           className="section-bg"
           /* Background with planned @2x high-res variant */
-          style={{ backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2@2x.webp') 2x)` }}
+          style={{ 
+            backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2@2x.webp') 2x)`,
+            filter: 'contrast(1.15) saturate(1.12) brightness(1.05)'
+          }}
         />
         <div className="section-overlay" />
         <div className="section-noise" />
         <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-5xl mx-auto panel-glass p-10 md:p-14 text-center">
-            <div className="pill-accent mb-6 mx-auto">Qui sommes-nous</div>
-            <h3 className="text-4xl md:text-5xl font-bold">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6">
               À propos de <span className="text-maverick-yellow">Maverick</span>
             </h3>
             <div className="divider-glow" />
@@ -351,7 +357,10 @@ function App() {
         <div
           className="section-bg"
           /* Background with planned @2x high-res variant */
-          style={{ backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3@2x.webp') 2x)` }}
+          style={{ 
+            backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3@2x.webp') 2x)`,
+            filter: 'contrast(1.15) saturate(1.12) brightness(1.05)'
+          }}
         />
         <div className="section-overlay" />
         <div className="section-noise" />
@@ -359,8 +368,7 @@ function App() {
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-6xl mx-auto panel-glass p-10 md:p-14">
             <div className="text-center mb-12">
-              <div className="pill-accent mb-4 mx-auto">Témoignages</div>
-              <h3 className="text-4xl md:text-5xl font-bold">
+              <h3 className="text-4xl md:text-5xl font-bold mb-6">
                 Avis <span className="text-maverick-yellow">Clients</span>
               </h3>
               <div className="divider-glow" />
@@ -385,7 +393,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-black/50">
+  <section id="contact" className="py-20 bg-black/50 scroll-mt-32">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold mb-4">
