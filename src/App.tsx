@@ -391,7 +391,7 @@ function App() {
       </section>
 
       {/* Testimonials Section - nouvelle version */}
-  <section id="avis" className="section-shell scroll-mt-32 section-mask-soft section--image-strong bg-flip-y">
+  <section id="avis" className="section-shell scroll-mt-32 section-mask-soft section--image-strong bg-flip-x">
         <div
           className="section-bg"
           style={{

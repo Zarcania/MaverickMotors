@@ -38,6 +38,8 @@
 
 /* Flip vertical (Y) pour une section */
 .bg-flip-y .section-bg { transform: scale(1.02) scaleY(-1); }
+/* Flip horizontal (X) */
+.bg-flip-x .section-bg { transform: scale(1.02) scaleX(-1); }
 
 .section-overlay {
 	position: absolute;
