@@ -119,10 +119,10 @@ function App() {
                 />
               </button>
               <nav className="hidden md:flex items-center space-x-8">
-                <a href="#services" className="hover:text-maverick-yellow transition-colors">Services</a>
-                <a href="#about" className="hover:text-maverick-yellow transition-colors">À propos</a>
-                <a href="#avis" className="hover:text-maverick-yellow transition-colors">Avis</a>
-                <a href="#contact" className="hover:text-maverick-yellow transition-colors">Contact</a>
+                <button onClick={() => scrollToSection('services')} className="hover:text-maverick-yellow transition-colors">Services</button>
+                <button onClick={() => scrollToSection('about')} className="hover:text-maverick-yellow transition-colors">À propos</button>
+                <button onClick={() => scrollToSection('avis')} className="hover:text-maverick-yellow transition-colors">Avis</button>
+                <button onClick={() => scrollToSection('contact')} className="hover:text-maverick-yellow transition-colors">Contact</button>
                 <button
                   onClick={handleCall}
                   className="bg-maverick-yellow text-black px-6 py-2 rounded-lg hover:bg-maverick-yellow/90 transition-all transform hover:scale-105 font-semibold"
@@ -180,7 +180,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 scroll-mt-32">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
           style={{
@@ -255,7 +255,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="section-shell">
+  <section id="services" className="section-shell scroll-mt-32">
         <div
           className="section-bg"
           style={{
@@ -304,13 +304,13 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="section-shell">
+  <section id="about" className="section-shell scroll-mt-32">
         <div
           className="section-bg"
           /* Background with planned @2x high-res variant */
           style={{ 
-            backgroundImage: `image-set(url('/images/maverick-bg2.webp') 1x, url('/images/maverick-bg2@2x.webp') 2x)`,
-            filter: 'contrast(1.15) saturate(1.12) brightness(1.05)'
+            backgroundImage: `image-set(url('/images/maverick-about.webp') 1x, url('/images/maverick-about@2x.webp') 2x)`,
+            filter: 'contrast(1.18) saturate(1.15) brightness(1.06)'
           }}
         />
         <div className="section-overlay" />
@@ -353,13 +353,13 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="avis" className="section-shell">
+  <section id="avis" className="section-shell scroll-mt-32">
         <div
           className="section-bg"
           /* Background with planned @2x high-res variant */
           style={{ 
-            backgroundImage: `image-set(url('/images/maverick-bg3.webp') 1x, url('/images/maverick-bg3@2x.webp') 2x)`,
-            filter: 'contrast(1.15) saturate(1.12) brightness(1.05)'
+            backgroundImage: `image-set(url('/images/maverick-avis.webp') 1x, url('/images/maverick-avis@2x.webp') 2x)`,
+            filter: 'contrast(1.18) saturate(1.15) brightness(1.06)'
           }}
         />
         <div className="section-overlay" />
