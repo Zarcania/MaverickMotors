@@ -304,7 +304,7 @@ function App() {
       </section>
 
       {/* About Section - nouvelle version */}
-      <section id="about" className="section-shell scroll-mt-32 section-mask-soft">
+  <section id="about" className="section-shell scroll-mt-32 section-mask-soft section--image-strong">
         <div
           className="section-bg"
           style={{
@@ -391,7 +391,7 @@ function App() {
       </section>
 
       {/* Testimonials Section - nouvelle version */}
-      <section id="avis" className="section-shell scroll-mt-32 section-mask-soft">
+  <section id="avis" className="section-shell scroll-mt-32 section-mask-soft section--image-strong">
         <div
           className="section-bg"
           style={{

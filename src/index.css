@@ -27,6 +27,15 @@
 	opacity: 0.22;
 }
 
+/* Variante pour faire ressortir davantage l'image d'arrière-plan */
+.section--image-strong .section-bg {
+	opacity: 0.38;
+	filter: saturate(1.15) contrast(1.18) brightness(1.05);
+}
+
+/* Accentuer légèrement le glow radial dans ce mode */
+.section--image-strong .section-accent { opacity: .45; }
+
 .section-overlay {
 	position: absolute;
 	inset: 0;
