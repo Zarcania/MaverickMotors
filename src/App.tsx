@@ -303,88 +303,137 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-  <section id="about" className="section-shell scroll-mt-32">
+      {/* About Section - nouvelle version */}
+      <section id="about" className="section-shell scroll-mt-32 section-mask-soft">
         <div
           className="section-bg"
-          /* Background with planned @2x high-res variant */
-          style={{ 
-            backgroundImage: `image-set(url('/images/maverick-about.webp') 1x, url('/images/maverick-about@2x.webp') 2x)`,
-            filter: 'contrast(1.18) saturate(1.15) brightness(1.06)'
+          style={{
+            backgroundImage: `image-set(url('/images/maverick-about.webp') 1x, url('/images/maverick-about@2x.webp') 2x)`
           }}
         />
         <div className="section-overlay" />
         <div className="section-noise" />
         <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-5xl mx-auto panel-glass p-10 md:p-14 text-center">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6">
-              À propos de <span className="text-maverick-yellow">Maverick</span>
-            </h3>
-            <div className="divider-glow" />
-            <div className="grid md:grid-cols-3 gap-8 mb-12 mt-4">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
-                  <Users className="w-8 h-8 text-black" />
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Colonne texte principale */}
+            <div className="lg:col-span-7 panel-glass p-8 md:p-10 relative overflow-hidden">
+              <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                À propos de <span className="text-maverick-yellow">Maverick</span>
+              </h3>
+              <p className="text-lg text-gray-300 leading-relaxed mb-8 max-w-xl">
+                Service premium de <span className="text-maverick-yellow font-semibold">dépannage</span> & transport de véhicules avec une expertise dédiée aux modèles haut de gamme et de collection. Intervention <span className="text-maverick-yellow font-semibold">rapide 24/7</span> et prise en charge sécurisée.
+              </p>
+              <div className="stats-grid mb-8">
+                <div className="stat-box text-center">
+                  <h4 className="text-maverick-yellow">450+</h4>
+                  <p>Interventions Réussies</p>
                 </div>
-                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Équipe Expert</h4>
-                <p className="text-gray-300 text-sm">Techniciens expérimentés</p>
+                <div className="stat-box text-center">
+                  <h4 className="text-maverick-yellow">30min</h4>
+                  <p>Temps Moyen</p>
+                </div>
+                <div className="stat-box text-center">
+                  <h4 className="text-maverick-yellow">24/7</h4>
+                  <p>Disponibilité</p>
+                </div>
+                <div className="stat-box text-center">
+                  <h4 className="text-maverick-yellow">100%</h4>
+                  <p>Satisfaction</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
-                  <Clock className="w-8 h-8 text-black" />
+              <div className="grid md:grid-cols-3 gap-5">
+                <div className="text-center">
+                  <div className="w-14 h-14 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-3 icon-ring shadow-md">
+                    <Users className="w-7 h-7 text-black" />
+                  </div>
+                  <h4 className="text-sm font-semibold mb-1 text-maverick-yellow tracking-wide">Équipe Expert</h4>
+                  <p className="text-gray-400 text-xs">Techniciens qualifiés</p>
                 </div>
-                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Disponibilité</h4>
-                <p className="text-gray-300 text-sm">Service 24h/24, 7j/7</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-4 icon-ring shadow-md">
-                  <Award className="w-8 h-8 text-black" />
+                <div className="text-center">
+                  <div className="w-14 h-14 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-3 icon-ring shadow-md">
+                    <Clock className="w-7 h-7 text-black" />
+                  </div>
+                  <h4 className="text-sm font-semibold mb-1 text-maverick-yellow tracking-wide">Intervention Rapide</h4>
+                  <p className="text-gray-400 text-xs">Moins de 30 minutes</p>
                 </div>
-                <h4 className="text-xl font-semibold mb-1 text-maverick-yellow tracking-wide">Excellence</h4>
-                <p className="text-gray-300 text-sm">Véhicules de prestige</p>
+                <div className="text-center">
+                  <div className="w-14 h-14 bg-maverick-yellow rounded-xl flex items-center justify-center mx-auto mb-3 icon-ring shadow-md">
+                    <Award className="w-7 h-7 text-black" />
+                  </div>
+                  <h4 className="text-sm font-semibold mb-1 text-maverick-yellow tracking-wide">Qualité Premium</h4>
+                  <p className="text-gray-400 text-xs">Standards élevés</p>
+                </div>
               </div>
             </div>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-maverick-yellow">Maverick</strong> est votre partenaire de confiance pour tous vos besoins de dépannage et transport de véhicules. Avec notre expertise reconnue dans le transport de véhicules de prestige et notre disponibilité 24h/24, nous garantissons un service professionnel et sécurisé pour votre tranquillité d'esprit.
-            </p>
+            {/* Colonne latérale / encart */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="panel-glass p-6 md:p-8 flex flex-col justify-between h-full">
+                <h4 className="text-2xl font-bold mb-4">
+                  Pourquoi <span className="text-maverick-yellow">nous choisir</span>
+                </h4>
+                <ul className="space-y-4 text-sm text-gray-300">
+                  <li className="flex items-start gap-3"><span className="text-maverick-yellow">•</span> Flotte équipée pour véhicules bas / prestige</li>
+                  <li className="flex items-start gap-3"><span className="text-maverick-yellow">•</span> Suivi transparent & communication directe</li>
+                  <li className="flex items-start gap-3"><span className="text-maverick-yellow">•</span> Assurance et sécurité optimales</li>
+                  <li className="flex items-start gap-3"><span className="text-maverick-yellow">•</span> Intervention multi-départements</li>
+                  <li className="flex items-start gap-3"><span className="text-maverick-yellow">•</span> Engagement satisfaction client</li>
+                </ul>
+                <div className="mt-8">
+                  <button onClick={() => scrollToSection('contact')} className="w-full bg-maverick-yellow text-black py-3 rounded-lg font-semibold hover:bg-maverick-yellow/90 transition-colors">
+                    Nous contacter
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-  <section id="avis" className="section-shell scroll-mt-32">
+      {/* Testimonials Section - nouvelle version */}
+      <section id="avis" className="section-shell scroll-mt-32 section-mask-soft">
         <div
           className="section-bg"
-          /* Background with planned @2x high-res variant */
-          style={{ 
-            backgroundImage: `image-set(url('/images/maverick-avis.webp') 1x, url('/images/maverick-avis@2x.webp') 2x)`,
-            filter: 'contrast(1.18) saturate(1.15) brightness(1.06)'
+          style={{
+            backgroundImage: `image-set(url('/images/maverick-avis.webp') 1x, url('/images/maverick-avis@2x.webp') 2x)`
           }}
         />
         <div className="section-overlay" />
         <div className="section-noise" />
         <div className="section-accent" />
         <div className="relative z-10 container mx-auto px-4">
-          <div className="max-w-6xl mx-auto panel-glass p-10 md:p-14">
-            <div className="text-center mb-12">
-              <h3 className="text-4xl md:text-5xl font-bold mb-6">
-                Avis <span className="text-maverick-yellow">Clients</span>
-              </h3>
-              <div className="divider-glow" />
-              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">Ce que disent nos clients satisfaits</p>
+          <div className="max-w-7xl mx-auto">
+            <div className="reviews-summary mb-14">
+              <div className="flex flex-col items-center">
+                <span className="score">5.0</span>
+                <span className="label">Note Globale</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="flex mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-maverick-yellow fill-current" />
+                  ))}
+                </div>
+                <span className="total">Basé sur 300+ avis</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="score text-3xl md:text-[2.4rem]">100%</span>
+                <span className="label">Satisfaction</span>
+              </div>
             </div>
+            <h3 className="text-4xl md:text-5xl font-bold mb-10 text-center">
+              Avis <span className="text-maverick-yellow">Clients</span>
+            </h3>
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="relative overflow-hidden rounded-2xl bg-black/40 backdrop-blur-md border border-maverick-yellow/25 p-6 flex flex-col shadow-[0_0_0_1px_rgba(212,212,53,0.15),0_8px_28px_-6px_rgba(0,0,0,0.6)]">
-                  <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-maverick-yellow/10 via-transparent to-maverick-yellow/10 pointer-events-none" />
-                  <div className="flex mb-4">
+                <div key={index} className="testimonial-card">
+                  <div className="testimonial-rating">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-maverick-yellow fill-current drop-shadow" />
+                      <Star key={i} className="w-5 h-5 text-maverick-yellow fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-300 mb-6 italic flex-1 leading-relaxed">"{testimonial.text}"</p>
-                  <div className="font-semibold text-maverick-yellow tracking-wide text-sm">- {testimonial.name}</div>
+                  <p className="testimonial-text">"{testimonial.text}"</p>
+                  <div className="testimonial-author">- {testimonial.name}</div>
                 </div>
               ))}
             </div>

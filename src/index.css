@@ -21,9 +21,10 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	filter: saturate(1.05) contrast(1.05);
-	transform: scale(1.04);
-	opacity: 0.3;
+	/* Nouveau rendu: image plus nette mais contrôlée */
+	filter: saturate(1.08) contrast(1.12) brightness(1.02);
+	transform: scale(1.02);
+	opacity: 0.22;
 }
 
 .section-overlay {
@@ -135,3 +136,96 @@
 	.section-bg { opacity: 0.28; }
 	.section-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.9) 100%); }
 }
+
+/* Masque directionnel pour adoucir bords et mieux faire ressortir contenu */
+.section-mask-soft:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(120deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.75) 70%, rgba(0,0,0,0.95) 100%);
+	pointer-events: none;
+}
+
+/* Grille statistiques About */
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+	gap: 1.25rem;
+}
+.stat-box {
+	position: relative;
+	padding: 1.1rem 1rem 1rem 1rem;
+	background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+	border: 1px solid rgba(255,255,255,0.08);
+	border-radius: 1rem;
+	backdrop-filter: blur(8px) saturate(1.1);
+	box-shadow: 0 4px 20px -6px rgba(0,0,0,0.5);
+}
+.stat-box h4 { font-size: 1.9rem; font-weight: 700; letter-spacing: -1px; }
+.stat-box p { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: #bbb; font-weight: 600; margin-top: .25rem; }
+
+/* Carte témoignage nouvelle version */
+.testimonial-card {
+	position: relative;
+	padding: 1.75rem 1.5rem 1.6rem 1.5rem;
+	background: linear-gradient(155deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+	border: 1px solid rgba(255,255,255,0.06);
+	border-radius: 1.3rem;
+	backdrop-filter: blur(10px) saturate(1.05);
+	transition: border-color .35s ease, transform .45s ease, box-shadow .45s ease;
+}
+.testimonial-card:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: radial-gradient(circle at 28% 18%, rgba(212,212,53,0.22), rgba(212,212,53,0) 55%);
+	opacity: .5;
+	pointer-events: none;
+}
+.testimonial-card:hover {
+	border-color: rgba(212,212,53,0.5);
+	transform: translateY(-6px) scale(1.015);
+	box-shadow: 0 0 0 1px rgba(212,212,53,0.25), 0 14px 34px -8px rgba(0,0,0,0.65);
+}
+.testimonial-rating {
+	display: flex;
+	gap: .25rem;
+	margin-bottom: .85rem;
+}
+.testimonial-text { color: #d2d2d2; line-height: 1.55; font-style: italic; }
+.testimonial-author { margin-top: 1.1rem; font-weight: 600; letter-spacing: .05em; color: var(--color-primary); font-size: .75rem; }
+
+/* Bandeau résumé avis */
+.reviews-summary {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	flex-wrap: wrap;
+	padding: 1.75rem 2.25rem;
+	background: linear-gradient(145deg, rgba(0,0,0,0.65), rgba(0,0,0,0.4));
+	border: 1px solid rgba(255,255,255,0.07);
+	border-radius: 1.25rem;
+	backdrop-filter: blur(12px) saturate(1.05);
+}
+.reviews-summary:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: radial-gradient(circle at 70% 30%, rgba(212,212,53,0.22), rgba(212,212,53,0) 60%);
+	opacity: .55;
+	pointer-events: none;
+}
+.reviews-summary .score {
+	font-size: 3.2rem;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -2px;
+	color: var(--color-primary);
+}
+.reviews-summary .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; color: #bcbcbc; font-weight: 600; }
+.reviews-summary .total { font-size: .8rem; letter-spacing: .12em; font-weight: 600; color: #eee; }
+
